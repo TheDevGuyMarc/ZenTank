@@ -1,4 +1,22 @@
 package de.aquazen.backend.timer.exception;
 
-public class TimerNotFoundException {
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class TimerNotFoundException extends RuntimeException {
+    public TimerNotFoundException(String message) {
+        super(message);
+    }
+
+    public TimerNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public TimerNotFoundException(Throwable cause) {
+        super(cause);
+    }
+
+    public TimerNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
 }
