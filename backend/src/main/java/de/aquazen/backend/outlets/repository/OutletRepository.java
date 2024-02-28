@@ -1,4 +1,11 @@
 package de.aquazen.backend.outlets.repository;
 
-public interface OutletRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface OutletRepository extends JpaRepository<OutletEntity, Long> {
+    Optional<OutletEntity> findById(Long id);
 }
