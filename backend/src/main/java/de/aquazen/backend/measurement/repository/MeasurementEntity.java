@@ -1,4 +1,4 @@
-package de.aquazen.backend.timer.repository;
+package de.aquazen.backend.measurement.repository;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "timers")
+@Table(name = "measurements")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TimerEntity {
+public class MeasurementEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
