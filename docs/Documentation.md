@@ -9,6 +9,285 @@ Look at [Architecture](Architecture.md) for a detailed requirement analysis rega
 ![Classdiagram](link_zum_bild)
 
 Description: This diagram shows the class structure and it's relations in the system. This might be subject to changes throughout development and will be updated then.
+
+- [x] Settings:
+- Properties:
+	- ID: Long
+	- name: String
+	- address: String
+	- capabilities: ``List<Capability>``
+	- display: boolean
+	- healthCheck: HealthCheck
+	- https: boolean
+	- interface: String
+	- notifications: boolean
+	- pprof: boolean
+	- prometheus: boolean
+	- rpi_pwm_freq: integer
+- Methods:
+	- CRUDL
+- [ ] Capability:
+- Properties:
+	- ID: Long
+	- name: String
+	- enabled: boolean
+- Methods:
+	- CRUDL
+- [ ] Error:
+- Properties:
+	- ID: Long
+	- message: String
+	- time: DateTime
+	- count: integer
+- Methods:
+	- CRUDL
+- [ ] Admin:
+- Properties:
+	- ID: Long
+- Methods:
+	- shutdown()
+	- reboot()
+	- reload()
+	- upgrade()
+	- systemInfo() -> cpu_temp, current_time, ip, model, name, uptime, version
+	- updateCredentials() -> username, password
+- [ ] Driver:
+- Properties:
+	- ID: Long
+	- name: String
+	- pinMap: PinMap
+	- type: String
+- Methods:
+	- CRUDL
+- [ ] Outlet:
+- Properties:
+	- ID: Long
+	- name: String
+	- pin: GPIODigitalOutput
+	- reverse: boolean
+	- state: boolean
+	- driver: Driver
+	- equipment: Equipment
+- Methods:
+	- CRUDL
+	- on()
+	- off()
+	- toggle()
+	- getState()
+	- reverse()
+- [ ] Inlet:
+- Properties:
+	- ID: Long
+	- name: String
+	- pin: GPIODigitalInput
+	- reverse: boolean
+	- state: boolean
+	- equipment: Object
+- Methods:
+	- CRUDL
+	- read()
+	- isTriggered()
+	- addStateChangeListener()
+	- removeStateChangeListener()
+- [ ] Jack:
+- Properties:
+	- ID: Long
+	- name: String
+	- pins: ``List<GPIOFactory``
+	- reverse: boolean
+	- state: bolean
+	- driver: Driver
+- Methods:
+	- CRUDL
+	- stop()
+	- pulse()
+	- fade()
+	- rampUp()
+	- rampDown()
+- [ ] Analog Input:
+- Properties:
+	- ID: Long
+	- name: String
+	- pin:
+	- state: boolean
+	- driver: Driver
+- Methods:
+	- CRUDL
+	- read()
+- [ ] Equipment:
+- Properties:
+	- ID: Long
+	- name: String
+	- state: boolean
+	- outlet: Outlet
+- Methods:
+	- CRUDL
+	- on()
+	- off()
+	- blink()
+	- history()
+- [ ] Temperature:
+- Properties:
+	- ID: Long
+	- name: String
+	- fahrenheit: boolean
+	- alerts: boolean
+	- min: integer
+	- max: integer
+	- heater_threshold: double
+	- cooler_threshold: double
+	- check_frequency: integer
+	- sensor_state: String
+	- cooler: Cooler
+	- heater: Heater
+	- sensor: Sensor
+- Methods:
+	- CRUDL
+	- read()
+- [ ] ATO:
+- Properties:
+	- ID: Long
+	- name: String
+	- alerts: boolean
+	- check_frequency: integer
+	- status: String
+	- inlet: Inlet
+	- pump: Equipment
+- Methods:
+	- CRUDL
+	- history()
+- [ ] Lights:
+- Properties:
+	- ID: Long
+	- name: String
+	- state: boolean
+	- jack: Jack
+	- channels: ``List<Channel>``
+- Methods:
+	- CRUDL
+- [ ] Channel:
+- Properties:
+	- ID: Long
+	- name: String
+	- color: String
+	- manual: boolean
+	- min: integer
+	- max: integer
+	- state: boolean
+	- pin: integer
+	- value: integer
+	- type: String
+- Methods:
+	- CRUDL
+	- read()
+	- isTriggered()
+	- addStateChangeListener()
+	- removeStateChangeListener
+- [ ] Waves:
+- Properties:
+	- ID: Long
+	- name: String
+	- state: boolean
+	- jack: Jack
+	- channels: ``List<Channel>``
+- Methods:
+	- CRUDL
+- [ ] Dosing:
+- Properties:
+	- ID: Long
+	- name: String
+	- pin: integer
+	- jack: Jack
+	- regiment: Regiment
+- Methods:
+	- CRUDL
+	- calibrate()
+	- history()
+- [ ] Regiment
+- Properties:
+	- ID: Long
+	- duration: double
+	- state: boolean
+	- speed: double
+	- timer: Timer
+- Methods:
+	- CRUDL
+- [ ] Misting:
+- Properties:
+	- ID: Long
+	- name: String
+	- pin: integer
+	- jack: Jack
+	- regiment: Regiment
+- Methods:
+	- CRUDL
+	- calibrate()
+	- history()
+- [ ] PhProbe:
+- Properties:
+	- ID: Long
+	- name: String
+	- state: boolean
+	- min: double
+	- max: double
+	- alerts: boolean
+	- address: integer
+	- check_frequency: integer
+	- downer_eq: String
+	- upper_eq: String
+	- analog_input: AnalogInput
+- Methods:
+	- CRUDL
+	- calibrate()
+	- measure()
+- [ ] Macro:
+- Properties:
+	- ID: Long
+	- name: String
+	- reversible: boolean
+	- steps: ``List<Step>``
+- Methods:
+	- CRUDL
+	- reverse()
+	- run()
+- [ ] Step:
+- Properties:
+	- ID: Long
+	- name: String
+	- type: String
+	- equipment: Long
+	- state: boolean
+	- duration: double
+- Methods:
+	- CRUDL
+- [ ] Timer:
+- Properties:
+	- ID: Long
+	- name: String
+	- target: ``List<Object>``
+	- type: String
+	- state: boolean
+	- month: String
+	- week: String
+	- day: String
+	- hour: String
+	- minute: String
+	- second: String
+- Methods:
+	- CRUDL
+- [ ] Camera:
+- Properties:
+	- ID: Long
+	- name: String
+	- capture_flags: String
+	- state: boolean
+	- imageDir: String
+	- videoDir: String
+- Methods:
+	- CRUDL
+	- listImages()
+	- capture()
+	- captureVideo()
 #### Activity diagram 
 ![Activitydiagram](link_zum_bild) 
 
