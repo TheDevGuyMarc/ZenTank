@@ -1,6 +1,7 @@
 package de.aquazen.backend.settings.repository;
 
 import de.aquazen.backend.capability.repository.CapabilityEntity;
+import de.aquazen.backend.healthcheck.repository.HealthCheckEntity;
 import de.aquazen.backend.settings.domain.Settings;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -51,7 +52,8 @@ public class SettingsEntity {
   @OneToMany(mappedBy = "settings", cascade = CascadeType.ALL)
   private List<CapabilityEntity> capabilities;
 
-  /* TODO: add relation to HealthCheck */
+  @OneToOne(mappedBy = "settings", cascade = CascadeType.ALL)
+  private HealthCheckEntity healthCheck;
 
   public SettingsEntity(Settings entity) {
     this.id = entity.getId();
@@ -65,5 +67,6 @@ public class SettingsEntity {
     this.prometheus = entity.isPrometheus();
     this.rpi_pwm_freq = entity.getRpi_pwm_freq();
     this.capabilities = entity.getCapabilities().stream().map(CapabilityEntity::new).toList();
+    this.healthCheck = new HealthCheckEntity(entity.getHealthCheck());
   }
 }
