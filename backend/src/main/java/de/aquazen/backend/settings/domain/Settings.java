@@ -1,9 +1,12 @@
 package de.aquazen.backend.settings.domain;
 
+import de.aquazen.backend.capability.domain.Capability;
 import de.aquazen.backend.settings.repository.SettingsEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,8 +22,7 @@ public class Settings {
     private boolean pprof;
     private boolean prometheus;
     private int rpi_pwm_freq;
-
-    /* TODO: add relation to Capabilities */
+    private List<Capability> capabilities;
 
     /* TODO: add relation to HealthCheck */
 
@@ -35,5 +37,6 @@ public class Settings {
         this.pprof = entity.isPprof();
         this.prometheus = entity.isPrometheus();
         this.rpi_pwm_freq = entity.getRpi_pwm_freq();
+        this.capabilities = entity.getCapabilities().stream().map(Capability::new).toList();
     }
 }

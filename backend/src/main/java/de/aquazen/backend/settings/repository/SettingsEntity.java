@@ -1,11 +1,14 @@
 package de.aquazen.backend.settings.repository;
 
+import de.aquazen.backend.capability.repository.CapabilityEntity;
 import de.aquazen.backend.settings.domain.Settings;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "settings")
@@ -45,7 +48,8 @@ public class SettingsEntity {
   @Column
   private int rpi_pwm_freq;
 
-  /* TODO: add relation to Capabilities */
+  @OneToMany(mappedBy = "settings", cascade = CascadeType.ALL)
+  private List<CapabilityEntity> capabilities;
 
   /* TODO: add relation to HealthCheck */
 
@@ -60,5 +64,6 @@ public class SettingsEntity {
     this.pprof = entity.isPprof();
     this.prometheus = entity.isPrometheus();
     this.rpi_pwm_freq = entity.getRpi_pwm_freq();
+    this.capabilities = entity.getCapabilities().stream().map(CapabilityEntity::new).toList();
   }
 }
