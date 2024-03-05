@@ -1,8 +1,11 @@
 package de.aquazen.backend.settings.controller;
 
+import de.aquazen.backend.capability.controller.CapabilityDTO;
 import de.aquazen.backend.settings.domain.Settings;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -17,8 +20,7 @@ public class SettingsDTO {
     private final boolean pprof;
     private final boolean prometheus;
     private final int rpi_pwm_freq;
-
-    /* TODO: add relation to Capabilities */
+    private final List<CapabilityDTO> capabilities;
 
     /* TODO: add relation to HealthCheck */
 
@@ -33,5 +35,6 @@ public class SettingsDTO {
         this.pprof = entity.isPprof();
         this.prometheus = entity.isPrometheus();
         this.rpi_pwm_freq = entity.getRpi_pwm_freq();
+        this.capabilities = entity.getCapabilities().stream().map(CapabilityDTO::new).toList();
     }
 }
