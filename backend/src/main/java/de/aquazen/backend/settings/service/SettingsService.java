@@ -50,6 +50,8 @@ public class SettingsService {
             updatedElement.setPprof(settings.isPprof());
             updatedElement.setPrometheus(settings.isPrometheus());
             updatedElement.setRpi_pwm_freq(settings.getRpi_pwm_freq());
+            updatedElement.setCapabilities(settings.getCapabilities());
+            updatedElement.setHealthCheck(settings.getHealthCheck());
 
             return new Settings(this.settingsRepository.saveAndFlush(new SettingsEntity(updatedElement)));
         }
