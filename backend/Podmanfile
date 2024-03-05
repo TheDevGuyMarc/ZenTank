@@ -1,0 +1,29 @@
+# syntax=docker/dockerfile:1.0.0
+
+# Use AdoptOpenJDK base image with OpenJDK 17
+FROM openjdk:21 AS build
+
+# Set working directory
+WORKDIR /app
+
+# Copy Maven configuration files
+COPY pom.xml ./
+COPY src ./src/
+
+# Build the project with Maven
+RUN ./mvnw package -DskipTests
+
+# Create a lightweight Docker image with JRE
+FROM openjdk:21
+
+# Set working directory
+WORKDIR /app
+
+# Copy compiled JAR file from the previous stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose port 8080
+EXPOSE 8080
+
+# Specify the command to run the application
+CMD ["java", "-jar", "app.jar"]
