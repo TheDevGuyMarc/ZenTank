@@ -1,46 +1,142 @@
-# Getting Started with Create React App
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Aquazen ZenTank
 
-## Available Scripts
+ZenTank is a tank computer that helps control all types of tanks that one could have. This helps with automation of many tasks in this hobby and also with scheduling certain tasks perfectly. In addition to that you can also improve on measuring and tracking of values.
 
-In the project directory, you can run:
+ZenTank is not only software but also a HAT board for the Raspberry Pi. We support all Raspberry Pi's with a 40 Pin GPIO.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node 20
+- React
+- React-Browser-Router
+- React-DnD
+- React-Flow
+- Recharts
+- Typescript
+- Axios
+- i18next
+- i18next-browser-languagedetector
+- Bootstrap
+- Styled Components
+- Jest
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+### ZenTank UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-
 
-### `npm run build`
+## Roadmap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Keep in mind that this is the overall Roadmap, for the specific Roadmap look in the Roadmap.md file in each sub project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ]  Implementation
+- [ ]  Unit Tests
+- [ ]  Integration Tests
+- [ ]  Performance Tests
+- [ ]  Vulnerability Tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+If you want to install ZenTank Locally you need some prerequisites to make this work.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Podman Way
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Install Podman, Podman Compose, Podman Desktop
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Classical Way
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Install Node 20.x.x
+- Install Java 21.x.x
+- Install Maven latest
+- Install Docker & Docker Compose
 
-## Learn More
+## Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Run Local DEV Environment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```shell
+  podman-compose -f dev-podman-compose.yml up
+```
+
+### Run Local UAT Environment
+
+```shell
+  podman-compose -f uat-podman-compose.yml up
+```
+
+### Run Local PROD Environment
+
+```shell
+  podman-compose -f prod-podman-compose.yml up
+```
+
+## Tests
+
+With ZenTank we test each module before release, that means we do unit and integration tests (automated) before new features reach the customer. What do we test how ?
+
+**Unit Tests**:
+
+- Backend Repository
+- Backend Service
+- Frontend Service
+
+**Integration Tests**:
+
+- Backend Controller
+- Frontend Components
+
+**Performance Tests:**
+
+- All
+
+**Vulnerability Tests:**
+
+- All
+
+### Run Tests
+
+```bash
+  npm run test:unit
+  npm run test:integration
+```
+
+## Deployment
+
+Because you need to deploy ZenTank to a Raspberry Pi there is a need to prepare the Pi and then move the code to that chip.
+
+For that we prepared an automated way to deploy.
+
+```bash
+
+```
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+## Usage/Examples
+
+## Documentation
+
+You can find the [official documentation](#) on our website for usage examples and tutorials.
+
+## FAQ
+
+### Is ZenTank Free ?
+
+Yes for now ZenTank is totally free, that might change at a later point though but don't worry if you made a free account you will be free forever.
+
+### Is ZenTank for Aquariums and Terrariums ?
+
+Yes it is and also for Paludariums and Vivariums if you want, we do all animals in tanks.
+
+## Support
+
+If you need any technical or functional support don't hesitate to write us an email we will reach back to you as fast as we can. If there is a technical problem we would prefer if you could use our GitHub issue template, for better and public issue tracking.
+
+## License
+
+[AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)
