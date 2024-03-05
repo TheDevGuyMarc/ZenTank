@@ -42,6 +42,7 @@ public class CapabilityService {
             updatedElement.setId(Capabilitys.getId());
             updatedElement.setName(Capabilitys.getName());
             updatedElement.setEnabled(Capabilitys.isEnabled());
+            updatedElement.setSettings(Capabilitys.getSettings());
 
             return new Capability(this.capabilityRepository.saveAndFlush(new CapabilityEntity(updatedElement)));
         }
