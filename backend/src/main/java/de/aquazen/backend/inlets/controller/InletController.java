@@ -51,4 +51,28 @@ public class InletController {
         this.inletService.deleteInlet(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/read")
+    public ResponseEntity<Void> readData(@PathVariable @Min(1) Long id) {
+        this.inletService.readData();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/state")
+    public ResponseEntity<Void> isTriggered(@PathVariable @Min(1) Long id) {
+        this.inletService.isTriggered();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/addListener")
+    public ResponseEntity<Void> addStateChangeListener(@PathVariable @Min(1) Long id) {
+        this.inletService.addStateChangeListener();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/removeListener")
+    public ResponseEntity<Void> removeStateChangeListener(@PathVariable @Min(1) Long id) {
+        this.inletService.removeStateChangeListener();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

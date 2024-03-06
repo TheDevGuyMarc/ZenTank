@@ -33,7 +33,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- enabled: boolean
 - Methods:
 	- CRUDL
-- [ ] Error:
+- [X] Error:
 - Properties:
 	- ID: Long
 	- message: String
@@ -51,7 +51,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- upgrade()
 	- systemInfo() -> cpu_temp, current_time, ip, model, name, uptime, version
 	- updateCredentials() -> username, password
-- [ ] Driver:
+- [X] Driver:
 - Properties:
 	- ID: Long
 	- name: String
@@ -59,7 +59,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- type: String
 - Methods:
 	- CRUDL
-- [ ] Outlet:
+- [X] Outlet (Missing Equipment Relation):
 - Properties:
 	- ID: Long
 	- name: String
@@ -75,13 +75,14 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- toggle()
 	- getState()
 	- reverse()
-- [ ] Inlet:
+- [X] Inlet (Missing Equipment Relation (generic Object)):
 - Properties:
 	- ID: Long
 	- name: String
 	- pin: GPIODigitalInput
 	- reverse: boolean
 	- state: boolean
+	- driver: Driver
 	- equipment: Object
 - Methods:
 	- CRUDL

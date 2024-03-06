@@ -45,6 +45,7 @@ public class DriverService {
             updatedElement.setPinMap(driver.getPinMap());
             updatedElement.setType(driver.getType());
             updatedElement.setOutlets(driver.getOutlets());
+            updatedElement.setInlets(driver.getInlets());
 
             return new Driver(this.driverRepository.saveAndFlush(new DriverEntity(updatedElement)));
         }
