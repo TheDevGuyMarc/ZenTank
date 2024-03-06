@@ -1,5 +1,6 @@
 package de.aquazen.backend.drivers.domain;
 
+import de.aquazen.backend.analoginput.domain.AnalogInput;
 import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.inlets.domain.Inlet;
 import de.aquazen.backend.jacks.domain.Jack;
@@ -21,6 +22,7 @@ public class Driver {
     private List<Outlet> outlets;
     private List<Inlet> inlets;
     private List<Jack> jacks;
+    private List<AnalogInput> analogInputs;
 
     public Driver(DriverEntity entity) {
         this.id = entity.getId();
@@ -30,5 +32,6 @@ public class Driver {
         this.outlets = entity.getOutlets().stream().map(Outlet::new).toList();
         this.inlets = entity.getInlets().stream().map(Inlet::new).toList();
         this.jacks = entity.getJacks().stream().map(Jack::new).toList();
+        this.analogInputs = entity.getAnalogInputs().stream().map(AnalogInput::new).toList();
     }
 }

@@ -105,7 +105,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- fade()
 	- rampUp()
 	- rampDown()
-- [ ] Analog Input:
+- [X] Analog InputJack (Missing Equipment Relation (generic Object)):
 - Properties:
 	- ID: Long
 	- name: String
