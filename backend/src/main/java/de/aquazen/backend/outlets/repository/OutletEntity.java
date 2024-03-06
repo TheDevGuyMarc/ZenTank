@@ -2,6 +2,7 @@ package de.aquazen.backend.outlets.repository;
 
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.drivers.repository.DriverEntity;
+import de.aquazen.backend.equipment.repository.EquipmentEntity;
 import de.aquazen.backend.outlets.domain.Outlet;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,9 @@ public class OutletEntity {
     @JoinColumn(name = "drivers_id", referencedColumnName = "id")
     private DriverEntity driver;
 
-    /* TODO: Implement Equipment relation (1-1) */
+    @OneToOne
+    @JoinColumn(name = "equipments_id", referencedColumnName = "id")
+    private EquipmentEntity equipment;
 
     public OutletEntity(Outlet entity) {
         this.id = entity.getId();
@@ -45,5 +48,6 @@ public class OutletEntity {
         this.reverse = entity.isReverse();
         this.state = entity.isState();
         this.driver = new DriverEntity(entity.getDriver());
+        this.equipment = new EquipmentEntity(entity.getEquipment());
     }
 }

@@ -115,7 +115,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 - Methods:
 	- CRUDL
 	- read()
-- [ ] Equipment:
+- [X] Equipment:
 - Properties:
 	- ID: Long
 	- name: String

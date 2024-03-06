@@ -51,4 +51,28 @@ public class EquipmentController {
         this.equipmentService.deleteEquipment(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/on/{id}")
+    public ResponseEntity<Void> on(@PathVariable @Min(1) Long id) {
+        this.equipmentService.on(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/off/{id}")
+    public ResponseEntity<Void> off(@PathVariable @Min(1) Long id) {
+        this.equipmentService.off(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/blink/{id}")
+    public ResponseEntity<Void> blink(@PathVariable @Min(1) Long id) {
+        this.equipmentService.blink(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/history/{id}")
+    public ResponseEntity<Void> history(@PathVariable @Min(1) Long id) {
+        this.equipmentService.history(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
