@@ -51,4 +51,22 @@ public class OutletController {
         this.outletService.deleteOutlet(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/on")
+    public ResponseEntity<Void> on(@PathVariable @Min(1) Long id) {
+        this.outletService.on();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/off")
+    public ResponseEntity<Void> off(@PathVariable @Min(1) Long id) {
+        this.outletService.off();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/reverse")
+    public ResponseEntity<Void> reverse(@PathVariable @Min(1) Long id) {
+        this.outletService.reverse();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

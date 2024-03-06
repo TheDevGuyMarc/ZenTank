@@ -2,6 +2,7 @@ package de.aquazen.backend.drivers.repository;
 
 import de.aquazen.backend.drivers.domain.Driver;
 import de.aquazen.backend.drivers.domain.Pin;
+import de.aquazen.backend.outlets.repository.OutletEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,23 +18,27 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DriverEntity {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column
-  private String name;
+    @Column
+    private String name;
 
-  @ElementCollection
-  private List<Pin> pinMap;
+    @ElementCollection
+    private List<Pin> pinMap;
 
-  @Column
-  private String type;
+    @Column
+    private String type;
+
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    private List<OutletEntity> outlets;
 
     public DriverEntity(Driver entity) {
         this.id = entity.getId();
         this.name = entity.getName();
         this.pinMap = entity.getPinMap();
         this.type = entity.getType();
+        this.outlets = entity.getOutlets().stream().map(OutletEntity::new).toList();
     }
 }
