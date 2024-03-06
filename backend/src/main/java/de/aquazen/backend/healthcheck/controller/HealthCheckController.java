@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/settings")
+@RequestMapping("/health-checks")
 public class HealthCheckController {
     private final HealthCheckService healthCheckService;
 
