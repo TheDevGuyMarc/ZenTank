@@ -51,4 +51,34 @@ public class JackController {
         this.jackService.deleteJack(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping("/stop/{id}")
+    public ResponseEntity<Void> stop(@PathVariable @Min(1) Long id) {
+        this.jackService.stop(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/pulse/{id}")
+    public ResponseEntity<Void> pulse(@PathVariable @Min(1) Long id) {
+        this.jackService.pulse(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/fade/{id}")
+    public ResponseEntity<Void> fade(@PathVariable @Min(1) Long id) {
+        this.jackService.fade(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/rampUp/{id}")
+    public ResponseEntity<Void> ramUp(@PathVariable @Min(1) Long id) {
+        this.jackService.ramUp(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/rampDown/{id}")
+    public ResponseEntity<Void> rampDown(@PathVariable @Min(1) Long id) {
+        this.jackService.rampDown(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

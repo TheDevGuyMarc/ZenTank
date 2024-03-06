@@ -90,11 +90,11 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- isTriggered()
 	- addStateChangeListener()
 	- removeStateChangeListener()
-- [ ] Jack:
+- [X] Jack (Missing Equipment Relation (generic Object)):
 - Properties:
 	- ID: Long
 	- name: String
-	- pins: ``List<GPIOFactory``
+	- pins: ``List<Pin>``
 	- reverse: boolean
 	- state: bolean
 	- driver: Driver
