@@ -10,7 +10,7 @@ Look at [Architecture](Architecture.md) for a detailed requirement analysis rega
 
 Description: This diagram shows the class structure and it's relations in the system. This might be subject to changes throughout development and will be updated then.
 
-- [x] Settings:
+- [X] Settings:
 - Properties:
 	- ID: Long
 	- name: String
@@ -26,7 +26,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- rpi_pwm_freq: integer
 - Methods:
 	- CRUDL
-- [ ] Capability:
+- [X] Capability:
 - Properties:
 	- ID: Long
 	- name: String
