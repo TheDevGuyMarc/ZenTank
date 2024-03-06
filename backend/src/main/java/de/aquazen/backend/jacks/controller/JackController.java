@@ -46,37 +46,37 @@ public class JackController {
         return new JackDTO(this.jackService.updateJack(id, jack));
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable @Min(1) Long id) {
         this.jackService.deleteJack(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/stop/{id}")
+    @GetMapping("/stop/{id}")
     public ResponseEntity<Void> stop(@PathVariable @Min(1) Long id) {
         this.jackService.stop(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/pulse/{id}")
+    @GetMapping("/pulse/{id}")
     public ResponseEntity<Void> pulse(@PathVariable @Min(1) Long id) {
         this.jackService.pulse(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/fade/{id}")
+    @GetMapping("/fade/{id}")
     public ResponseEntity<Void> fade(@PathVariable @Min(1) Long id) {
         this.jackService.fade(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/rampUp/{id}")
+    @GetMapping("/rampUp/{id}")
     public ResponseEntity<Void> ramUp(@PathVariable @Min(1) Long id) {
         this.jackService.ramUp(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/rampDown/{id}")
+    @GetMapping("/rampDown/{id}")
     public ResponseEntity<Void> rampDown(@PathVariable @Min(1) Long id) {
         this.jackService.rampDown(id);
         return new ResponseEntity<>(HttpStatus.OK);

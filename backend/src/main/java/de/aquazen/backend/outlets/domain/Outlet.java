@@ -2,6 +2,7 @@ package de.aquazen.backend.outlets.domain;
 
 import de.aquazen.backend.drivers.domain.Driver;
 import de.aquazen.backend.drivers.domain.Pin;
+import de.aquazen.backend.equipment.domain.Equipment;
 import de.aquazen.backend.outlets.repository.OutletEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +18,7 @@ public class Outlet {
     private boolean reverse;
     private boolean state;
     private Driver driver;
-
-    /* TODO: Implement Equipment relation (1-1) */
+    private Equipment equipment;
 
     public Outlet(OutletEntity entity) {
         this.id = entity.getId();
@@ -27,5 +27,6 @@ public class Outlet {
         this.reverse = entity.isReverse();
         this.state = entity.isState();
         this.driver = new Driver(entity.getDriver());
+        this.equipment = new Equipment(entity.getEquipment());
     }
 }

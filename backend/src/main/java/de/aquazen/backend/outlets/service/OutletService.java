@@ -45,6 +45,7 @@ public class OutletService {
             updatedElement.setReverse(outlet.isReverse());
             updatedElement.setState(outlet.isState());
             updatedElement.setDriver(outlet.getDriver());
+            updatedElement.setEquipment(outlet.getEquipment());
 
             return new Outlet(this.outletRepository.saveAndFlush(new OutletEntity(updatedElement)));
         }
