@@ -2,6 +2,7 @@ package de.aquazen.backend.drivers.domain;
 
 import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.inlets.domain.Inlet;
+import de.aquazen.backend.jacks.domain.Jack;
 import de.aquazen.backend.outlets.domain.Outlet;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Driver {
     private String type;
     private List<Outlet> outlets;
     private List<Inlet> inlets;
+    private List<Jack> jacks;
 
     public Driver(DriverEntity entity) {
         this.id = entity.getId();
@@ -27,5 +29,6 @@ public class Driver {
         this.type = entity.getType();
         this.outlets = entity.getOutlets().stream().map(Outlet::new).toList();
         this.inlets = entity.getInlets().stream().map(Inlet::new).toList();
+        this.jacks = entity.getJacks().stream().map(Jack::new).toList();
     }
 }
