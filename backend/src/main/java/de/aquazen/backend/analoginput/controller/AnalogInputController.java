@@ -51,4 +51,10 @@ public class AnalogInputController {
         this.analogInputService.deleteAnalogInput(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping("/read/{id}")
+    public ResponseEntity<Void> readData(@PathVariable @Min(1) Long id) {
+        this.analogInputService.readData(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
