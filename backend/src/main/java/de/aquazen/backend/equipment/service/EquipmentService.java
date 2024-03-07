@@ -43,7 +43,10 @@ public class EquipmentService {
             updatedElement.setId(equipment.getId());
             updatedElement.setName(equipment.getName());
             updatedElement.setState(equipment.isState());
+            updatedElement.setType(equipment.getType());
             updatedElement.setOutlet(equipment.getOutlet());
+            updatedElement.setCooler(equipment.getCooler());
+            updatedElement.setHeater(equipment.getHeater());
 
             return new Equipment(this.equipmentRepository.saveAndFlush(new EquipmentEntity(updatedElement)));
         }
