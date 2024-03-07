@@ -1,5 +1,6 @@
 package de.aquazen.backend.equipment.controller;
 
+import de.aquazen.backend.ato.controller.AtoDTO;
 import de.aquazen.backend.equipment.domain.Equipment;
 import de.aquazen.backend.outlets.controller.OutletDTO;
 import de.aquazen.backend.temperature.controller.TemperatureDTO;
@@ -14,6 +15,7 @@ public class EquipmentDTO {
     private final OutletDTO outlet;
     private final TemperatureDTO cooler;
     private final TemperatureDTO heater;
+    private final AtoDTO ato;
 
     public EquipmentDTO(Equipment entity) {
         this.id = entity.getId();
@@ -23,5 +25,6 @@ public class EquipmentDTO {
         this.outlet = new OutletDTO(entity.getOutlet());
         this.cooler = new TemperatureDTO(entity.getCooler());
         this.heater = new TemperatureDTO(entity.getHeater());
+        this.ato = new AtoDTO(entity.getAto());
     }
 }

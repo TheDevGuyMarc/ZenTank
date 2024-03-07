@@ -51,4 +51,10 @@ public class AtoController {
         this.atoService.deleteAto(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/history/{id}")
+    public ResponseEntity<Void> history(@PathVariable @Min(1) Long id) {
+        this.atoService.history(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
