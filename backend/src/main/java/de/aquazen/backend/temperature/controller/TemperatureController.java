@@ -51,4 +51,10 @@ public class TemperatureController {
         this.temperatureService.deleteTemperatureProbe(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/read/{id}")
+    public ResponseEntity<Void> readData(@PathVariable @Min(1) Long id) {
+        this.temperatureService.readData(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
