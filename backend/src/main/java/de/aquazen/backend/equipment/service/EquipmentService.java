@@ -47,6 +47,7 @@ public class EquipmentService {
             updatedElement.setOutlet(equipment.getOutlet());
             updatedElement.setCooler(equipment.getCooler());
             updatedElement.setHeater(equipment.getHeater());
+            updatedElement.setAto(equipment.getAto());
 
             return new Equipment(this.equipmentRepository.saveAndFlush(new EquipmentEntity(updatedElement)));
         }

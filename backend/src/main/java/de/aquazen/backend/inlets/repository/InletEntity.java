@@ -1,5 +1,6 @@
 package de.aquazen.backend.inlets.repository;
 
+import de.aquazen.backend.ato.repository.AtoEntity;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.inlets.domain.Inlet;
@@ -38,6 +39,10 @@ public class InletEntity {
 
     /* TODO: Implement Equipment relation (Object) 1-1 */
 
+    @OneToOne
+    @JoinColumn(name = "ato_id")
+    private AtoEntity ato;
+
     public InletEntity(Inlet entity) {
         this.id = entity.getId();
         this.name = entity.getName();
@@ -45,5 +50,6 @@ public class InletEntity {
         this.reverse = entity.isReverse();
         this.state = entity.isState();
         this.driver = new DriverEntity(entity.getDriver());
+        this.ato = new AtoEntity(entity.getAto());
     }
 }

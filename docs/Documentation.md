@@ -145,7 +145,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 - Methods:
 	- CRUDL
 	- read()
-- [ ] ATO:
+- [X] ATO:
 - Properties:
 	- ID: Long
 	- name: String

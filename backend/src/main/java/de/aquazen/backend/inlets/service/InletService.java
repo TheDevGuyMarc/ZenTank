@@ -49,6 +49,7 @@ public class InletService {
             updatedElement.setReverse(inlet.isReverse());
             updatedElement.setState(inlet.isState());
             updatedElement.setDriver(inlet.getDriver());
+            updatedElement.setAto(inlet.getAto());
 
             return new Inlet(this.inletRepository.saveAndFlush(new InletEntity(updatedElement)));
         }
