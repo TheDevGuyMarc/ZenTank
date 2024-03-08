@@ -51,4 +51,16 @@ public class DosingController {
         this.dosingService.deleteDosingSystem(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/calibrate/{id}")
+    public ResponseEntity<Void> calibrate(@PathVariable @Min(1) Long id) {
+        this.dosingService.calibrate(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/history/{id}")
+    public ResponseEntity<Void> history(@PathVariable @Min(1) Long id) {
+        this.dosingService.history(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

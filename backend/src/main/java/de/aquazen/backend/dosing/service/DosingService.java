@@ -56,4 +56,22 @@ public class DosingService {
     public void deleteDosingSystem(Long id) {
         this.dosingRepository.deleteById(id);
     }
+
+    public void calibrate(Long id) {
+        /* TODO: Implement this method */
+
+        /*
+         * Concept:
+         * This should help to calibrate the dosing system
+         */
+    }
+
+    public void history(Long id) {
+        /* TODO: Implement this method */
+
+        /*
+         * Concept:
+         * This should return the usage history of the dosing system
+         */
+    }
 }
