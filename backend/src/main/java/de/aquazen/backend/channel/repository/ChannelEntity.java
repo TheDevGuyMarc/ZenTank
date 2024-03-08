@@ -3,6 +3,7 @@ package de.aquazen.backend.channel.repository;
 import de.aquazen.backend.channel.domain.Channel;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.lighting.repository.LightingEntity;
+import de.aquazen.backend.waves.repository.WaveEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -51,6 +52,10 @@ public class ChannelEntity {
     @JoinColumn(name = "channel_id", referencedColumnName = "id")
     private LightingEntity light;
 
+    @ManyToOne
+    @JoinColumn(name = "channel_id", referencedColumnName = "id")
+    private WaveEntity wave;
+
 
     public ChannelEntity(Channel entity) {
         this.id = entity.getId();
@@ -64,5 +69,6 @@ public class ChannelEntity {
         this.value = entity.getValue();
         this.type = entity.getType();
         this.light = new LightingEntity(entity.getLight());
+        this.wave = new WaveEntity(entity.getWave());
     }
 }

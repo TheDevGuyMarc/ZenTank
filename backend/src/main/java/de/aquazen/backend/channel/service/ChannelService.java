@@ -51,6 +51,7 @@ public class ChannelService {
             updatedElement.setValue(channel.getValue());
             updatedElement.setType(channel.getType());
             updatedElement.setLight(channel.getLight());
+            updatedElement.setWave(channel.getWave());
 
             return new Channel(this.channelRepository.saveAndFlush(new ChannelEntity(updatedElement)));
         }
