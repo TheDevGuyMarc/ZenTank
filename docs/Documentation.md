@@ -157,7 +157,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 - Methods:
 	- CRUDL
 	- history()
-- [ ] Lights:
+- [X] Lights:
 - Properties:
 	- ID: Long
 	- name: String
@@ -166,7 +166,8 @@ Description: This diagram shows the class structure and it's relations in the sy
 	- channels: ``List<Channel>``
 - Methods:
 	- CRUDL
-- [ ] Channel:
+	- history()
+- [X] Channel:
 - Properties:
 	- ID: Long
 	- name: String

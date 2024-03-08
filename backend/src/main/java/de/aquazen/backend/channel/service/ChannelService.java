@@ -50,6 +50,7 @@ public class ChannelService {
             updatedElement.setPin(channel.getPin());
             updatedElement.setValue(channel.getValue());
             updatedElement.setType(channel.getType());
+            updatedElement.setLight(channel.getLight());
 
             return new Channel(this.channelRepository.saveAndFlush(new ChannelEntity(updatedElement)));
         }

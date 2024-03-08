@@ -51,4 +51,10 @@ public class LightingController {
         this.lightingService.deleteLight(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/history")
+    public ResponseEntity<Void> history(@PathVariable @Min(1) Long id) {
+        this.lightingService.history(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

@@ -2,6 +2,8 @@ package de.aquazen.backend.channel.repository;
 
 import de.aquazen.backend.channel.domain.Channel;
 import de.aquazen.backend.drivers.domain.Pin;
+import de.aquazen.backend.drivers.repository.DriverEntity;
+import de.aquazen.backend.lighting.repository.LightingEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,6 +48,10 @@ public class ChannelEntity {
     @Column
     private String type;
 
+    @ManyToOne
+    @JoinColumn(name = "channel_id", referencedColumnName = "id")
+    private LightingEntity light;
+
 
     public ChannelEntity(Channel entity) {
         this.id = entity.getId();
@@ -58,5 +64,6 @@ public class ChannelEntity {
         this.pin = entity.getPin();
         this.value = entity.getValue();
         this.type = entity.getType();
+        this.light = new LightingEntity(entity.getLight());
     }
 }

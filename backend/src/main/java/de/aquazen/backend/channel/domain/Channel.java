@@ -2,6 +2,8 @@ package de.aquazen.backend.channel.domain;
 
 import de.aquazen.backend.channel.repository.ChannelEntity;
 import de.aquazen.backend.drivers.domain.Pin;
+import de.aquazen.backend.lighting.domain.Lighting;
+import de.aquazen.backend.lighting.repository.LightingEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,7 @@ public class Channel {
     private Pin pin;
     private int value;
     private String type;
+    private Lighting light;
 
     public Channel(ChannelEntity entity) {
         this.id = entity.getId();
@@ -32,5 +35,6 @@ public class Channel {
         this.pin = entity.getPin();
         this.value = entity.getValue();
         this.type = entity.getType();
+        this.light = new Lighting(entity.getLight());
     }
 }

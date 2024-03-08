@@ -46,6 +46,7 @@ public class JackService {
             updatedElement.setReverse(jack.isReverse());
             updatedElement.setState(jack.isState());
             updatedElement.setDriver(jack.getDriver());
+            updatedElement.setLight(jack.getLight());
 
             return new Jack(this.jackRepository.saveAndFlush(new JackEntity(updatedElement)));
         }

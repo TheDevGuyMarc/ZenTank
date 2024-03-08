@@ -2,6 +2,7 @@ package de.aquazen.backend.channel.controller;
 
 import de.aquazen.backend.channel.domain.Channel;
 import de.aquazen.backend.drivers.domain.Pin;
+import de.aquazen.backend.lighting.controller.LightingDTO;
 import lombok.Getter;
 
 @Getter
@@ -16,6 +17,7 @@ public class ChannelDTO {
     private final Pin pin;
     private final int value;
     private final String type;
+    private final LightingDTO light;
 
     public ChannelDTO(Channel entity) {
         this.id = entity.getId();
@@ -28,5 +30,6 @@ public class ChannelDTO {
         this.pin = entity.getPin();
         this.value = entity.getValue();
         this.type = entity.getType();
+        this.light = new LightingDTO(entity.getLight());
     }
 }
