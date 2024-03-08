@@ -1,5 +1,7 @@
 package de.aquazen.backend.jacks.controller;
 
+import de.aquazen.backend.dosing.controller.DosingDTO;
+import de.aquazen.backend.dosing.domain.Dosing;
 import de.aquazen.backend.drivers.controller.DriverDTO;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.jacks.domain.Jack;
@@ -19,6 +21,7 @@ public class JackDTO {
     private final DriverDTO driver;
     private final LightingDTO light;
     private final WaveDTO wave;
+    private final DosingDTO dosing;
 
     /* TODO: Implement the relation to what ever equipment is needed here (Object ?) */
 
@@ -31,5 +34,6 @@ public class JackDTO {
         this.driver = new DriverDTO(entity.getDriver());
         this.light = new LightingDTO(entity.getLight());
         this.wave = new WaveDTO(entity.getWave());
+        this.dosing = new DosingDTO(entity.getDosing());
     }
 }

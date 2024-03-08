@@ -1,5 +1,6 @@
 package de.aquazen.backend.jacks.domain;
 
+import de.aquazen.backend.dosing.domain.Dosing;
 import de.aquazen.backend.drivers.domain.Driver;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.jacks.repository.JackEntity;
@@ -23,6 +24,7 @@ public class Jack {
     private Driver driver;
     private Lighting light;
     private Wave wave;
+    private Dosing dosing;
 
     /* TODO: Implement the relation to what ever equipment is needed here (Object ?) */
 
@@ -35,5 +37,6 @@ public class Jack {
         this.driver = new Driver(entity.getDriver());
         this.light = new Lighting(entity.getLight());
         this.wave = new Wave(entity.getWave());
+        this.dosing = new Dosing(entity.getDosing());
     }
 }

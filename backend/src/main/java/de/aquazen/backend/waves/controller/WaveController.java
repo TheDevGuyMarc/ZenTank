@@ -51,4 +51,10 @@ public class WaveController {
         this.waveService.deleteWave(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/history/{id}")
+    public ResponseEntity<Void> history(@PathVariable @Min(1) Long id) {
+        this.waveService.history(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
