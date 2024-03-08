@@ -199,7 +199,7 @@ Description: This diagram shows the class structure and it's relations in the sy
   - channels: ``List<Channel>``
 - Methods:
   - CRUDL
-- [ ] Dosing:
+- [X] Dosing:
 - Properties:
   - ID: Long
   - name: String
@@ -210,7 +210,7 @@ Description: This diagram shows the class structure and it's relations in the sy
   - CRUDL
   - calibrate()
   - history()
-- [ ] Regiment
+- [X] Regiment
 - Properties:
   - ID: Long
   - duration: double
