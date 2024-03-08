@@ -1,5 +1,6 @@
 package de.aquazen.backend.jacks.repository;
 
+import de.aquazen.backend.dosing.repository.DosingEntity;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.jacks.domain.Jack;
@@ -46,6 +47,9 @@ public class JackEntity {
     @OneToOne(mappedBy = "jack")
     private WaveEntity wave;
 
+    @OneToOne(mappedBy = "jack")
+    private DosingEntity dosing;
+
     /* TODO: Implement the relation to what ever equipment is needed here (Object ?) */
 
     public JackEntity(Jack entity) {
@@ -57,6 +61,6 @@ public class JackEntity {
         this.driver = new DriverEntity(entity.getDriver());
         this.light = new LightingEntity(entity.getLight());
         this.wave = new WaveEntity(entity.getWave());
-
+        this.dosing = new DosingEntity(entity.getDosing());
     }
 }
