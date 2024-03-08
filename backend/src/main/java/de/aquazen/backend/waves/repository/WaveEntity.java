@@ -32,7 +32,7 @@ public class WaveEntity {
     @JoinColumn(name = "jack_id")
     private JackEntity jack;
 
-    @OneToMany(mappedBy = "light", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "wave", cascade = CascadeType.ALL)
     private List<ChannelEntity> channels;
 
     public WaveEntity(Wave entity) {
