@@ -2,7 +2,6 @@ package de.aquazen.backend.channel.repository;
 
 import de.aquazen.backend.channel.domain.Channel;
 import de.aquazen.backend.drivers.domain.Pin;
-import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.lighting.repository.LightingEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
