@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/waves")
+@RequestMapping("/wave-systems")
 public class WaveController {
     private final WaveService waveService;
 

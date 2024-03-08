@@ -4,6 +4,7 @@ import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.drivers.repository.DriverEntity;
 import de.aquazen.backend.jacks.domain.Jack;
 import de.aquazen.backend.lighting.repository.LightingEntity;
+import de.aquazen.backend.waves.repository.WaveEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,6 +43,9 @@ public class JackEntity {
     @OneToOne(mappedBy = "jack")
     private LightingEntity light;
 
+    @OneToOne(mappedBy = "jack")
+    private WaveEntity wave;
+
     /* TODO: Implement the relation to what ever equipment is needed here (Object ?) */
 
     public JackEntity(Jack entity) {
@@ -52,5 +56,7 @@ public class JackEntity {
         this.state = entity.isState();
         this.driver = new DriverEntity(entity.getDriver());
         this.light = new LightingEntity(entity.getLight());
+        this.wave = new WaveEntity(entity.getWave());
+
     }
 }

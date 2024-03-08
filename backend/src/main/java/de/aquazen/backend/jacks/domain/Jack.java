@@ -4,6 +4,7 @@ import de.aquazen.backend.drivers.domain.Driver;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.jacks.repository.JackEntity;
 import de.aquazen.backend.lighting.domain.Lighting;
+import de.aquazen.backend.waves.domain.Wave;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Jack {
     private boolean state;
     private Driver driver;
     private Lighting light;
+    private Wave wave;
 
     /* TODO: Implement the relation to what ever equipment is needed here (Object ?) */
 
@@ -32,5 +34,6 @@ public class Jack {
         this.state = entity.isState();
         this.driver = new Driver(entity.getDriver());
         this.light = new Lighting(entity.getLight());
+        this.wave = new Wave(entity.getWave());
     }
 }

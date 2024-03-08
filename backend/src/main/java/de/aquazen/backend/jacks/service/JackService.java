@@ -47,6 +47,7 @@ public class JackService {
             updatedElement.setState(jack.isState());
             updatedElement.setDriver(jack.getDriver());
             updatedElement.setLight(jack.getLight());
+            updatedElement.setWave(jack.getWave());
 
             return new Jack(this.jackRepository.saveAndFlush(new JackEntity(updatedElement)));
         }

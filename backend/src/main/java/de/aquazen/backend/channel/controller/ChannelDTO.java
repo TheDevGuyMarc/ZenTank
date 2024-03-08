@@ -3,6 +3,7 @@ package de.aquazen.backend.channel.controller;
 import de.aquazen.backend.channel.domain.Channel;
 import de.aquazen.backend.drivers.domain.Pin;
 import de.aquazen.backend.lighting.controller.LightingDTO;
+import de.aquazen.backend.waves.controller.WaveDTO;
 import lombok.Getter;
 
 @Getter
@@ -18,6 +19,7 @@ public class ChannelDTO {
     private final int value;
     private final String type;
     private final LightingDTO light;
+    private final WaveDTO wave;
 
     public ChannelDTO(Channel entity) {
         this.id = entity.getId();
@@ -31,5 +33,6 @@ public class ChannelDTO {
         this.value = entity.getValue();
         this.type = entity.getType();
         this.light = new LightingDTO(entity.getLight());
+        this.wave = new WaveDTO(entity.getWave());
     }
 }
