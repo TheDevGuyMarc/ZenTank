@@ -190,7 +190,7 @@ Description: This diagram shows the class structure and it's relations in the sy
 - Methods:
   - CRUDL
   - history()
-- [ ] Waves:
+- [X] Waves:
 - Properties:
   - ID: Long
   - name: String
